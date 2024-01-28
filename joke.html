@@ -1,0 +1,110 @@
+<!-- joke.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artful Giggle - Joke</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #e4d3d3, #ff8c40, #9133a8);
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+        }
+        #backgroundShapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('path/to/geometric-shapes.png') repeat;
+            z-index: -1;
+        }
+        #container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+
+        h1 {
+            font-size: 48px;
+            color: #FF5733;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 40px;
+        }
+        #jokeContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #jokeImage {
+            max-width: 100%;
+            border: 5px solid #000;
+            margin-right: 20px;
+        }
+        #oldDoodleImage {
+            max-width: 100%;
+            border: 5px solid #000;
+            margin-left: 20px;
+        }
+        #tryAgainButton {
+            background-color: #FF5733;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        #tryAgainButton:hover {
+            background-color: #DB4530;
+        }
+    </style>
+</head>
+<body>
+<div id="backgroundShapes"></div>
+<div id="container">
+    <h1>Artful Giggle</h1>
+    <div id="jokeContainer">
+        <img id="jokeImage" src="" alt="Doodle Joke">
+        <img id="oldDoodleImage" src="" alt="Old Doodle">
+        <p id="jokeText">This is where the joke text will appear.</p>
+    </div>
+    <button id="tryAgainButton" onclick="tryAgain()">Try Again</button>
+</div>
+<script>
+    function tryAgain() {
+        window.location.href = 'doodle app.index.html'; // Go back to the doodle page
+    }
+
+    // Retrieve drawing and joke text from localStorage
+    const dataUrl = localStorage.getItem('drawing');
+    const jokeImage = document.getElementById('jokeImage');
+    jokeImage.src = dataUrl;
+
+    // Retrieve old doodle from localStorage
+    const oldDoodleUrl = localStorage.getItem('oldDoodle');
+    const oldDoodleImage = document.getElementById('oldDoodleImage');
+    oldDoodleImage.src = oldDoodleUrl;
+
+    const jokeText = localStorage.getItem('jokeText');
+    const jokeTextElement = document.getElementById('jokeText');
+    jokeTextElement.innerText = jokeText;
+</script>
+</body>
+</html>
