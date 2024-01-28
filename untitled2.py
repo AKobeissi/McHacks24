@@ -16,7 +16,7 @@ pip install openai==0.28
 import openai
 
 # Set your OpenAI API key
-api_key = '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'
+api_key = 'YOUR API KEY'
 openai.api_key = api_key
 
 def generate_chat_response(prompt):
